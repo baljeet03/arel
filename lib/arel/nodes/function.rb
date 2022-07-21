@@ -17,17 +17,6 @@ module Arel
         self.alias = SqlLiteral.new(aliaz)
         self
       end
-
-      def hash
-        [@expressions, @alias, @distinct].hash
-      end
-
-      def eql? other
-        self.class == other.class &&
-          self.expressions == other.expressions &&
-          self.alias == other.alias &&
-          self.distinct == other.distinct
-      end
     end
 
     %w{

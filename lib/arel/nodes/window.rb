@@ -32,17 +32,6 @@ module Arel
         super
         @orders = @orders.map { |x| x.clone }
       end
-
-      def hash
-        [@orders, @framing].hash
-      end
-
-      def eql? other
-        self.class == other.class &&
-          self.orders == other.orders &&
-          self.framing == other.framing
-      end
-      alias :== :eql?
     end
 
     class NamedWindow < Window
@@ -57,15 +46,6 @@ module Arel
         super
         @name = other.name.clone
       end
-
-      def hash
-        super ^ @name.hash
-      end
-
-      def eql? other
-        super && self.name == other.name
-      end
-      alias :== :eql?
     end
 
     class Rows < Unary
@@ -80,15 +60,7 @@ module Arel
       end
     end
 
-    class CurrentRow < Node
-      def hash
-        self.class.hash
-      end
-
-      def eql? other
-        self.class == other.class
-      end
-    end
+    class CurrentRow < Arel::Nodes::Node; end
 
     class Preceding < Unary
       def initialize(expr = nil)

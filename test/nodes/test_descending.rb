@@ -29,16 +29,6 @@ module Arel
         descending = Descending.new 'zomg'
         assert descending.descending?
       end
-
-      def test_equality_with_same_ivars
-        array = [Descending.new('zomg'), Descending.new('zomg')]
-        assert_equal 1, array.uniq.size
-      end
-
-      def test_inequality_with_different_ivars
-        array = [Descending.new('zomg'), Descending.new('zomg!')]
-        assert_equal 2, array.uniq.size
-      end
     end
   end
 end

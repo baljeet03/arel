@@ -7,15 +7,6 @@ module Arel
         super(expr, aliaz)
         @name = name
       end
-
-      def hash
-        super ^ @name.hash
-      end
-
-      def eql? other
-        super && self.name == other.name
-      end
-      alias :== :eql?
     end
   end
 end

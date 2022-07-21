@@ -8,16 +8,6 @@ module Arel
         super()
         @expr = expr
       end
-
-      def hash
-        @expr.hash
-      end
-
-      def eql? other
-        self.class == other.class &&
-          self.expr == other.expr
-      end
-      alias :== :eql?
     end
 
     %w{
