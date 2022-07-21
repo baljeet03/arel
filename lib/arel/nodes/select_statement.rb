@@ -5,7 +5,6 @@ module Arel
       attr_accessor :limit, :orders, :lock, :offset, :with
 
       def initialize cores = [SelectCore.new]
-        super()
         @cores          = cores
         @orders         = []
         @limit          = nil
